@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Portfolio</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: #0f2027;
+            background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+            color: #fff;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin: auto;
+        }
+
+        header .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        header nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        header nav ul li {
+            margin-left: 20px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        header nav ul li a:hover {
+            color: #ff6f61;
+        }
+        .profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+        /* Hero Section */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1581091870629-03bb92b8f63b') no-repeat center center/cover;
+            color: #921b1b;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            
+        }
+
+        .hero h2 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            background: #ff6f61;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #e85c50;
+        }
+
+        /* Sections */
+        section {
+            padding:20px 0;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            color: #0f2027;
+        }
+
+        /* About */
+        .about p {
+            width: 70%;
+            margin: auto;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        /* Skills */
+        .skills .skill-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .skills .skill {
+            width: 45%;
+            margin-bottom: 30px;
+        }
+
+        .skills .skill h3 {
+            margin-bottom: 10px;
+        }
+
+        .skill-bar {
+            width: 100%;
+            background: #ddd;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .skill-bar div {
+            height: 15px;
+            background: #ff6f61;
+        }
+
+        /* Projects */
+        .projects .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .project-card {
+            background: #f3f3f3;
+            padding: 10px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Contact */
+        .contact form {
+            width: 50%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact form input,
+        .contact form textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+
+        .contact form button {
+            width: 150px;
+            align-self: center;
+            padding: 10px;
+            background: #ff6f61;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .contact form button:hover {
+            background: #e85c50;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f2027;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Responsive */
+        @media(max-width: 768px){
+            .skills .skill {
+                width: 100%;
+            }
+
+            .contact form {
+                width: 90%;
+            }
+
+            .hero h2 {
+                font-size: 2.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header>
+        <div class="container">
+            <h1 class="logo">Nagalatha Rani Badiginchala</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <img src="https://tse3.mm.bing.net/th/id/OIP.Fd9FpzhrFkFZ3wN-uBD3lwHaHa?pid=Api&P=0&h=180" alt="profile" class="profile pic">
+            <h2>I'm Nagalatha Rani</h2>
+            <p>Computer Science Engineering(AI&ML)  | Aspiring Full Stack Developer</p>
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I am an engineering student passionate about web development, AI, and IoT. 
+               I enjoy solving complex problems and building useful applications that make life easier.</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>My Skills</h2>
+            <div class="skill-container">
+                <div class="skill">
+                    <h3>HTML & CSS</h3>
+                    <div class="skill-bar"><div style="width: 95%;"></div></div>
+                </div>
+                <div class="skill">
+                    <h3>JavaScript</h3>
+                    <div class="skill-bar"><div style="width: 85%;"></div></div>
+                </div>
+                <div class="skill">
+                    <h3>Java</h3>
+                    <div class="skill-bar"><div style="width: 80%;"></div></div>
+                </div>
+                <div class="skill">
+                    <h3>Python</h3>
+                    <div class="skill-bar"><div style="width: 75%;"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>HouseHunt Web App</h3>
+                    <p>MERN stack project for rental home search and management.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Resume Builder</h3>
+                    <p>HTML,CSS & Javascript automated resume builder.</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Nagalatha Rani Badiginchala| All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+</html>
