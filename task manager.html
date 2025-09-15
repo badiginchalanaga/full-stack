@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #db6276, #5fdbdf);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+      width: 420px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      width: 80%;
+      padding: 12px;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      outline: none;
+      transition: 0.3s;
+      font-size: 14px;
+    }
+
+    input[type="text"]:focus {
+      border-color: #ff4a77;
+    }
+
+    .buttons {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      flex: 1;
+      min-width: 100px;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .addBtn { background: #4facfe; }
+    .addBtn:hover { background: #00c6ff; }
+
+    .deleteBtn { background: #ec4b4b; }
+    .deleteBtn:hover { background: #c82333; }
+
+    .appendBtn { background: #ffc107; color: #333; }
+    .appendBtn:hover { background: #e0a800; color: #fff; }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    li {
+      background: #f9f9f9;
+      padding: 12px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    li.completed {
+      background: #d4edda; /* light green */
+      border-left: 6px solid #28a745;
+      color: #155724;
+      font-weight: bold;
+    }
+
+    .taskText {
+      flex: 1;
+    }
+
+    .taskBtns button {
+      margin-left: 8px;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .completeBtn { background: #35e75e; }
+    .completeBtn:hover { background: #218838; }
+
+    /* .deleteTaskBtn { background: #ec4b4b; }
+    .deleteTaskBtn:hover { background: #c82333; } */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>To Do List</h2>
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    
+    <div class="buttons">
+      <button class="btn addBtn" id="addTask">Add Task</button>
+      <button class="btn deleteBtn" id="deleteFirst">Delete First</button>
+      <button class="btn appendBtn" id="appendTask">Append</button>
+    </div>
+
+    <ul id="taskList"></ul>
+  </div>
+  </body>
+</html>
+
+  <script>
+    $(document).ready(function() {
+      // Add new task
+      $("#addTask").on("click", function() {
+        let task = $("#taskInput").val().trim();
+        if (task) {
+          $("#taskList").append(
+            `<li>
+              <span class="taskText">${task}</span>
+              <div class="taskBtns">
+                <button class="completeBtn">Complete</button>
+                // <button class="deleteTaskBtn">Delete</button>
+              </div>
+            </li>`
+          );
+          $("#taskInput").val("");
+        }
+      });
+
+      // Delete first task (global button)
+      $("#deleteFirst").on("click", function() {
+        $("#taskList li:first").remove();
+      });
+
+      // Append a new task (same as add, but separate button)
+      $("#appendTask").on("click", function() {
+        let task = $("#taskInput").val().trim();
+        if (task) {
+          $("#taskList").append(
+            `<li>
+              <span class="taskText">${task}</span>
+              <div class="taskBtns">
+                <button class="completeBtn">Complete</button>
+               
+              </div>
+            </li>`
+          );
+          $("#taskInput").val("");
+        }
+      });
+
+      // Mark specific task complete
+      $("#taskList").on("click", ".completeBtn", function() {
+        $(this).closest("li").toggleClass("completed");
+      });
+
+    //   // Delete specific task
+    //   $("#taskList").on("click", ".deleteTaskBtn", function() {
+    //     $(this).closest("li").remove();
+    //   });
+    });
+  </script>
